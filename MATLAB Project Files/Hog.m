@@ -1,5 +1,4 @@
 
-%test
 CellSize = 8;
 BlockSize = 2;
 

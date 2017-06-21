@@ -2,42 +2,31 @@
 CellSize = 8;
 BlockSize = 2;
 
-%reading image data of class1
-class1 ='C:\Users\BIEO101\Desktop\test\';
-dinfo = dir(strcat(class1,'*.png'));
+%reading image data of class1. If you use this program in your own PC,
+%you need to change the file adress.
+class1 ='C:\Users\BIEO101\Desktop\test\bikes\';
+[Class1,Class1_label]=HOGFeatures(class1,1);
+class2 ='C:\Users\BIEO101\Desktop\test\bikes_and_persons\';
+[Class2,Class2_label]=HOGFeatures(class2,0);
 
-for K = 1 : length(dinfo)
-  thisfilename = dinfo(K).name;  %just the name
-  Rena=imread(strcat(class1,thisfilename)); 
-  I1 = rgb2gray(Rena);    
-  if(K >1)
-  Class1=cat(1,Class1,features);%concatnating vectors 
-  else
-  Class1=cat(1,features);
-  end
-end
-Class1_label=zeros(length(dinfo),1);
-Class1=Class1.';%transverse for svmtrain dataset
 
- 
-%reading image data of class1
-class2 ='C:\Users\BIEO101\Desktop\test\';
-dinfo = dir(strcat(class2,'*.png'));
-for K = 1 : length(dinfo)
-  thisfilename = dinfo(K).name;  %just the name
-  Rena=imread(strcat(class2,thisfilename)); 
-  I1 = rgb2gray(Rena);    
-  if(K >1)
-  Class2=cat(1,Class2,features);%concatnating vectors 
-  else
-  Class2=cat(1,features);
-  end
-end
-Class2_label=ones(length(dinfo),1);
-Class2=Class2.';%transverse for svmtrain dataset
+Class_label=cat(1,Class1_label,Class2_label); %modifing the feature matrix for svmtrain.
+Class_data=cat(2,Class1,Class2);%modifing the feature matrix for svmtrain.
 
- 
-Class_label=cat(1,Class1_label,Class2_label);
+SVMstruct = svmtrain(Class_data,Class_label); % traing data
 
-Class_data=cat(2,Class1,Class2);
-SVMstruct = svmtrain(Class_data,Class_label);
+line(SVMstruct);
+
+
+
+%Rena=imread('C:\Users\BIEO101\Desktop\test\else\Lenna.png'); 
+%  I1 = rgb2gray(imresize(Rena,[120 80]));  
+%features =extractHOGFeatures(I1);
+%output the recognizing data. 1 or 0
+%svmclassify(SVMstruct,features)
+
+
+
+
+
+

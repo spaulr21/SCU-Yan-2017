@@ -1,0 +1,15 @@
+1 SVM(Suppor Vector Machine)
+https://monkeylearn.com/blog/introduction-to-support-vector-machines-svm/
+
+The above url explain SVM clearly. You will understand the idea of SVM.
+
+
+
+2 HOG(Histogram of Gradient)
+http://mccormickml.com/2013/05/09/hog-descriptor-in-matlab/
+
+
+
+I have already built a plain descriptor for a object.
+But If we apply it for vocal fold or mouse, We need many images of these.
+(It might be over 1000.....)

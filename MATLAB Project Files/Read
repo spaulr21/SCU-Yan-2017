@@ -1,7 +1,7 @@
 I have already built a plain descriptor for a object.
 But If we apply it for vocal fold or mouse, We need many images of these.
 (It might be over 1000.....)
-This descriptor would work well, If we have traing data enough.
+This descriptor would work well if we have traing data enough.
 
 1 SVM(Suppor Vector Machine)
 https://monkeylearn.com/blog/introduction-to-support-vector-machines-svm/
